@@ -30,7 +30,7 @@ def model_predictions(data):
     
     predicted = model.predict(X)
 
-    return predicted
+    return predicted, y
 
 ##################Function to get summary statistics
 def dataframe_summary(pth):
@@ -98,7 +98,7 @@ def outdated_packages_list():
 
 
 if __name__ == '__main__':
-    predicted = model_predictions(os.path.join(os.getcwd(), 'sourcedata', 'dataset3.csv'))
+    predicted, _ = model_predictions(os.path.join(os.getcwd(), 'sourcedata', 'dataset3.csv'))
     print(f'Predictions: {predicted}\n')
 
     statistics_list = dataframe_summary(os.path.join(os.getcwd(), output_folder_path, 'finaldata.csv'))

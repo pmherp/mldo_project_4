@@ -41,3 +41,5 @@ def score_model():
     
     with open(os.path.join(os.getcwd(), output_model_path, 'latestscore.txt'), 'w') as f:
         f.write(str(f1))
+    
+    return f1
