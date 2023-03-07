@@ -25,7 +25,6 @@ def store_model_into_pickle():
     #copy the latest pickle file, the latestscore.txt value, and the ingestfiles.txt file into the deployment directory
     file_name = os.listdir(os.path.join(os.getcwd(),dataset_csv_path))
     model_name = os.listdir(os.path.join(os.getcwd(), output_model_path))
-    print(model_name)
 
     with open(os.path.join(os.getcwd(), output_model_path, str(model_name[0])), 'rb') as f:
         model = pickle.load(f)
@@ -39,11 +38,13 @@ def store_model_into_pickle():
     if not os.path.isdir(prod_deployment_path):
         os.mkdir(prod_deployment_path)
     
-    with open(os.path.join(os.getcwd(), prod_deployment_path, 'trainedmodel.pkl'), 'w') as f:
-        f.write(str(model))
+    pickle.dump(model, open(os.path.join(os.getcwd(), prod_deployment_path, 'trainedmodel.pkl'), 'wb'))
     
     with open(os.path.join(os.getcwd(), prod_deployment_path, 'latestscore.txt'), 'w') as f:
         f.write(str(latest_score))
     
     with open(os.path.join(os.getcwd(), prod_deployment_path, 'ingestedfiles.txt'), 'w') as f:
         f.write(str(ingested_files))
+
+if __name__ == '__main__':
+    store_model_into_pickle()
