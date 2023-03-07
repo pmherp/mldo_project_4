@@ -38,8 +38,8 @@ def merge_multiple_dataframe():
         os.mkdir(output_folder_path)
 
     final_df.to_csv(os.getcwd()+'/'+output_folder_path+'/finaldata.csv')
-
-    with open(os.getcwd()+'/'+output_folder_path+'/ingestedfiles.txt', 'w') as f:
+    
+    with open(os.path.join(os.getcwd(), output_folder_path, 'ingestedfiles.txt'), 'w') as f:
         f.write(str(file_list))
 
 
