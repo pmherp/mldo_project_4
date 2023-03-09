@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 import json
 
+
 ###################Load config.json and get path variables
 with open('config.json','r') as f:
     config = json.load(f) 
@@ -40,6 +41,7 @@ def train_model():
         os.mkdir(model_path)
 
     pickle.dump(model, open(os.getcwd()+'/'+model_path+'/trainedmodel.pkl', 'wb'))
+
 
 if __name__ == '__main__':
     train_model()

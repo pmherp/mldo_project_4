@@ -8,7 +8,6 @@ from diagnostics import model_predictions, dataframe_summary, missing_data, exec
 from scoring import score_model
 
 
-
 ######################Set up variables for use in our script
 app = Flask(__name__)
 app.secret_key = '1652d576-484a-49fd-913a-6879acfa6ba4'
@@ -30,6 +29,7 @@ def predict():
 
     return str(predicted)
 
+
 #######################Scoring Endpoint
 @app.route("/scoring", methods=['GET','OPTIONS'])
 def stats1():        
@@ -37,12 +37,14 @@ def stats1():
     f1 = score_model()
     return str(f1)
 
+
 #######################Summary Statistics Endpoint
 @app.route("/summarystats", methods=['GET','OPTIONS'])
 def stats2():        
     #check means, medians, and modes for each column
     statistics_list = dataframe_summary(os.path.join(os.getcwd(), 'testdata', 'testdata.csv'))
     return str(statistics_list)
+
 
 #######################Diagnostics Endpoint
 @app.route("/diagnostics", methods=['GET','OPTIONS'])
@@ -56,6 +58,7 @@ def stats3():
         #print(f'{package}: {current_version} -> {latest_version}')
 
     return [str(nan_list), str(timer_list), [str(package), str(current_version), str(latest_version)]]
+
 
 if __name__ == "__main__":    
     app.run(host='0.0.0.0', port=8000, debug=True, threaded=True)

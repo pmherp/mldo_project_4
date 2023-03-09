@@ -11,12 +11,11 @@ from sklearn.metrics import confusion_matrix
 from diagnostics import model_predictions
 
 
-
 ###############Load config.json and get path variables
 with open('config.json','r') as f:
     config = json.load(f) 
 
-dataset_csv_path = config['output_folder_path']
+dataset_csv_path = config['output_model_path']
 
 
 ##############Function for reporting

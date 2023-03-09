@@ -1,0 +1,1 @@
+*/10 * * * * /Users/philipherp/Documents/Udacity/Machine_Learning_DevOps/mldo_project_4/fullprocess.py

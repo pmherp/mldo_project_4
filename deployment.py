@@ -10,7 +10,6 @@ import json
 import ast
 
 
-
 ##################Load config.json and correct path variable
 with open('config.json','r') as f:
     config = json.load(f) 
@@ -26,13 +25,13 @@ def store_model_into_pickle():
     file_name = os.listdir(os.path.join(os.getcwd(),dataset_csv_path))
     model_name = os.listdir(os.path.join(os.getcwd(), output_model_path))
 
-    with open(os.path.join(os.getcwd(), output_model_path, str(model_name[0])), 'rb') as f:
+    with open(os.path.join(os.getcwd(), output_model_path, 'trainedmodel.pkl'), 'rb') as f:
         model = pickle.load(f)
         
-    with open(os.path.join(os.getcwd(), output_model_path, str(model_name[1])), 'r') as f:
+    with open(os.path.join(os.getcwd(), output_model_path, 'latestscore.txt'), 'r') as f:
         latest_score = ast.literal_eval(f.read()) 
 
-    with open(os.path.join(os.getcwd(), dataset_csv_path, str(file_name[1])), 'r') as f:
+    with open(os.path.join(os.getcwd(), dataset_csv_path, 'ingestedfiles.txt'), 'r') as f:
         ingested_files = ast.literal_eval(f.read())
     
     if not os.path.isdir(prod_deployment_path):
@@ -45,6 +44,7 @@ def store_model_into_pickle():
     
     with open(os.path.join(os.getcwd(), prod_deployment_path, 'ingestedfiles.txt'), 'w') as f:
         f.write(str(ingested_files))
+
 
 if __name__ == '__main__':
     store_model_into_pickle()

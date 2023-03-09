@@ -7,6 +7,7 @@ import json
 import pickle
 import subprocess
 
+
 ##################Load config.json and get environment variables
 with open('config.json','r') as f:
     config = json.load(f) 
@@ -15,6 +16,7 @@ dataset_csv_path = config['output_folder_path']
 test_data_path = config['test_data_path']
 prod_deployment_path = config['prod_deployment_path']
 output_folder_path = config['output_folder_path']
+
 
 ##################Function to get model predictions
 def model_predictions(data):
@@ -31,6 +33,7 @@ def model_predictions(data):
     predicted = model.predict(X)
 
     return predicted, y
+
 
 ##################Function to get summary statistics
 def dataframe_summary(pth):
@@ -53,6 +56,7 @@ def dataframe_summary(pth):
         statistics_list.extend([mini, maxi, mean, std])
 
     return statistics_list
+
 
 def missing_data(pth):
     nan_list = []
@@ -86,6 +90,7 @@ def execution_time():
     timer_list.append(timing_training)
 
     return timer_list
+
 
 ##################Function to check dependencies
 def outdated_packages_list():
