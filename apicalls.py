@@ -24,5 +24,5 @@ def apicalls():
     responses.extend([response1, response2, response3, response4])
 
     #write the responses to your workspace
-    with open(os.path.join(os.getcwd(), dataset_csv_path, 'apireturns.txt'), 'w') as f:
+    with open(os.path.join(os.getcwd(), dataset_csv_path, 'apireturns2.txt'), 'w') as f:
         f.write(str(responses))

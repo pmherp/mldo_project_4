@@ -32,7 +32,7 @@ def score_model(predicted, y):
     if not os.path.isdir(dataset_csv_path):
         os.mkdir(dataset_csv_path)
 
-    plt.savefig(os.path.join(os.getcwd(), dataset_csv_path, 'confusionmatrix.png'))
+    plt.savefig(os.path.join(os.getcwd(), dataset_csv_path, 'confusionmatrix2.png'))
 
 
 if __name__ == '__main__':
