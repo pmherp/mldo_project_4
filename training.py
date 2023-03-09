@@ -20,7 +20,7 @@ model_path = config['output_model_path']
 #################Function for training the model
 def train_model():
     file_name = os.listdir(os.path.join(os.getcwd(),dataset_csv_path))
-    training_data = pd.read_csv(os.path.join(os.getcwd(),dataset_csv_path,str(file_name[0])))
+    training_data = pd.read_csv(os.path.join(os.getcwd(), dataset_csv_path, 'finaldata.csv'))
     training_data = training_data.drop('corporation', axis=1)
 
     X = training_data.loc[:, ['lastmonth_activity', 'lastyear_activity', 'number_of_employees']].values.reshape(-1,3)

@@ -48,7 +48,7 @@ def run():
 
     #f1 = f1_score(predicted, y)
     f1 = scoring.score_model()
-    f1 = 0.114
+    #f1 = 0.112
 
     ##################Deciding whether to proceed, part 2
     #if you found model drift, you should proceed. otherwise, do end the process here
